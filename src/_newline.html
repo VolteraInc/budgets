@@ -1,0 +1,27 @@
+<? 
+const dt = new Date(date)
+const monthDay = dt.toLocaleString('en-US', {month: 'short'}) + " " + dt.getDate()
+?>
+
+<li>
+  <div class="topline">
+    <vendor>
+      <?= entity ?>
+    </vendor>
+    <div>
+      <? if(invoice) { ?><a href="<?= invoice ?>" target="_blank"><i class="invoice"></i></a>
+      <? } ?>
+      <amount>
+        <?= toDollars(value) ?>
+      </amount>
+    </div>
+  </div>
+  <div class="detail">
+    <span>
+      <?= memo ?>
+    </span>
+    <span>
+      <?= monthDay ?>
+    </span>
+  </div>
+</li>
