@@ -4,12 +4,16 @@
   "type": "module",
   "scripts": {
     "gas:build": "cd gas && tsc -p tsconfig.json",
-    "gas:copy": "copyfiles -u 0 appsscript.json gas/",
+    "gas:copy": "copyfiles -u 1 ./gas/appsscript.json ./gas/dist/",
     "gas:push": "clasp push --force",
     "ui:dev": "cd ui && vite",
     "ui:build": "cd ui && vite build",
     "ui:deploy": "cd ui && gh-pages -d dist -r git@github.com:VolteraInc/budgets.git",
     "push": "npm run ui:build && npm run ui:deploy && npm run gas:build && npm run gas:copy && npm run gas:push"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@types/google-apps-script": "^2.0.7",

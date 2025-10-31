@@ -79,3 +79,37 @@ function formatDateMMDDYYYY(date: Date): string {
   const year = date.getFullYear();
   return `${month}/${day}/${year}`;
 }
+
+function getForecastedValue() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getActiveSheet();
+  const cell = sheet.getActiveCell();
+
+  // Get row and column of the selected cell
+  const row = cell.getRow();
+  const col = cell.getColumn();
+
+  // Only proceed if the active cell is in the top section
+  if (row < 24) {
+    // adjust this cutoff depending on where "Forecasted" starts
+    const accountName = sheet.getRange(row, 1).getValue(); // Column A
+    const lastRow = sheet.getLastRow();
+
+    // Search for a matching account name in the Forecasted section
+    const forecastedRange = sheet
+      .getRange(25, 1, lastRow - 24, 1)
+      .getValues()
+      .flat();
+    const matchIndex = forecastedRange.findIndex((name) => name === accountName);
+
+    if (matchIndex !== -1) {
+      const forecastRow = 25 + matchIndex;
+      const forecastValue = sheet.getRange(forecastRow, col).getValue();
+      return forecastValue;
+    } else {
+      return "No matching forecast found.";
+    }
+  } else {
+    return "Select a cell from the upper section.";
+  }
+}
