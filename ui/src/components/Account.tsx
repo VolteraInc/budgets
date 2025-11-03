@@ -5,7 +5,7 @@ import { type Transaction } from "../types";
 type HistoryProps = {
   transactions: Transaction[];
   expanded: boolean;
-  forecasted: number;
+  forecasted: number | null;
   onClick: (newAccount: string) => void;
 };
 export default function Account(props: HistoryProps) {
@@ -21,7 +21,7 @@ export default function Account(props: HistoryProps) {
   }, [transactions]);
 
   function renderComparison() {
-    if (forecasted === 0) {
+    if (forecasted === 0 || !forecasted) {
       return null;
     }
 

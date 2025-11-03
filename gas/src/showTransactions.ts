@@ -62,7 +62,8 @@ function showSidebar(payload: Payload) {
   // During development - add a version parameter so it pulls the freshest
   // Assets from Github pages.
 
-  const version = new Date().getTime(); // or pull from PropertiesService
+  // const version = new Date().getTime(); // or pull from PropertiesService
+  const version = 1;
   const html = HtmlService.createHtmlOutput(`
         <!doctype html>
         <html>
