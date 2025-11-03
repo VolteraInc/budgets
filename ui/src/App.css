@@ -46,6 +46,7 @@ a:hover {
 
 .account {
   margin: 10px 5px;
+  padding-right: 5px;
 
   & > .title-overview {
     border-width: 2px;
