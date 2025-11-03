@@ -6,7 +6,7 @@ interface EntryProps {
 }
 
 export default function Entry(props: EntryProps) {
-  const { value, project, class: product, memo, date, invoice, entity, tranid } = props.transaction;
+  const { type, amount, project, class: product, memo, date, entity, internalid, float, vendor } = props.transaction;
 
   const [showTags, setShowTags] = useState<boolean>(true);
 
@@ -18,47 +18,58 @@ export default function Entry(props: EntryProps) {
   function renderTagsOrInvoice() {
     if (showTags) {
       return (
-        <div className='line tags'>
+        <div className="line subtitle">
           <div></div>
           <div>
-            {project ? <span className='pill project'>{project}</span> : null}
-            {product ? <span className='pill product'>{product}</span> : null}
+            {project ? <span className="pill project">{project}</span> : null}
+            {product ? <span className="pill product">{product}</span> : null}
           </div>
         </div>
       );
     }
 
-    if (invoice) {
-      return (
-        <div className='line subtitle'>
-          <a href={invoice}>Invoice</a>
-          <p>{tranid}</p>
-        </div>
-      );
+    let prefix = "";
+    if (type === "Bill") {
+      prefix = "vendbill";
+    } else if (type === "Journal") {
+      prefix = "journal";
     }
 
+    const link = `https://5097856.app.netsuite.com/app/accounting/transactions/${prefix}.nl?id=${internalid}`;
+
     return (
-      <div className='line subtitle'>
-        <p>{tranid}</p>
+      <div className="line subtitle">
+        <div></div>
+        <p>
+          <a target="_blank" href={link}>
+            {type}
+          </a>
+          {"  "}
+          {float ? (
+            <a target="_blank" href={float}>
+              Float
+            </a>
+          ) : null}
+        </p>
       </div>
     );
   }
 
   return (
-    <div className='entry' onClick={() => setShowTags(!showTags)}>
-      <div className='line title'>
-        <p>{entity}</p>
+    <div className="entry" onClick={() => setShowTags(!showTags)}>
+      <div className="line title">
+        <p>{entity || vendor}</p>
         <p>
-          {value.toLocaleString("en-US", {
+          {amount.toLocaleString("en-US", {
             style: "currency",
             currency: "USD",
           })}
         </p>
       </div>
 
-      <div className='line subtitle'>
+      <div className="line subtitle">
         <p>{memo}</p>
-        <p>{month}</p>
+        <p className="month">{month}</p>
       </div>
       {renderTagsOrInvoice()}
     </div>

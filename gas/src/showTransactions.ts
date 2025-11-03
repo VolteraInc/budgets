@@ -1,11 +1,6 @@
 type Transaction = {
   account: string;
-  amount: number;
-  project: string;
-  class: string;
-  invoice: string;
-  memo: string;
-  // Plus others...
+  // Plus others... See types.ts
 };
 
 type Payload = {
@@ -29,15 +24,7 @@ function showTransactions() {
     const { deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds } = filters;
 
     // Fetch from netsuite.
-    const data = getFromNetsuite(
-      startDate,
-      endDate,
-      deptIds,
-      withProjectIds,
-      withoutProjectIds,
-      withClassIds,
-      withoutClassIds
-    );
+    const data = getFromNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds);
 
     // Fetch invoices if possible.
     // const withInvoices = listWithInvoices(filteredList);
@@ -104,16 +91,7 @@ function getFromNetsuite(
     Logger.log(`Retrieved ${cacheName} from cache`);
     return JSON.parse(cached);
   }
-  const data = queryNetsuite(
-    startDate,
-    endDate,
-    deptIds,
-    withProjectIds,
-    withoutProjectIds,
-    withClassIds,
-    withoutClassIds,
-    false
-  );
+  const data = queryNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds, false);
   cache.put(cacheName, JSON.stringify(data), 300); // cache for 5 minutes
   return data;
 }

@@ -22,6 +22,10 @@ body {
   font-style: normal;
 }
 
+a:hover {
+  color: #6fcf2a;
+}
+
 #root {
 }
 
@@ -114,11 +118,11 @@ body {
     &.subtitle {
       font-size: 0.9rem;
     }
-
-    &.tags {
-      font-size: 0.9rem;
-    }
   }
+}
+
+.month {
+  flex-shrink: 0;
 }
 
 @keyframes fadeIn {

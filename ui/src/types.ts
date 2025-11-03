@@ -1,6 +1,6 @@
 export type Transaction = {
+  // From query
   date: string;
-  value: number;
   department: string;
   class: string;
   project: string;
@@ -10,6 +10,13 @@ export type Transaction = {
   memo: string;
   tranid: string;
   type: string;
+
+  internalid: string;
+  amount: number;
+  float: string;
+  vendor: string;
+
+  // Generated
   invoice?: string | null;
 };
 

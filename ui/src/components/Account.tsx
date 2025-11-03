@@ -16,7 +16,7 @@ export default function Account(props: HistoryProps) {
   const [showPercentage, setShowPercentage] = useState<boolean>(true);
 
   useEffect(() => {
-    const total = transactions.reduce((sum, t) => sum + t.value, 0);
+    const total = transactions.reduce((sum, t) => sum + t.amount, 0);
     setAccountTotal(total);
   }, [transactions]);
 
@@ -59,7 +59,7 @@ export default function Account(props: HistoryProps) {
     }
 
     return (
-      <div className='entries'>
+      <div className="entries">
         {transactions.map((trans, index) => (
           <Entry key={`${index}-accountName`} transaction={trans} />
         ))}
@@ -68,7 +68,7 @@ export default function Account(props: HistoryProps) {
   }
 
   return (
-    <div className='account'>
+    <div className="account">
       <div className={`title-overview ${expanded ? "expanded" : ""}`} onClick={() => onClick(accountName)}>
         <p>{accountName.slice(0, 25)}</p>
         <p>
