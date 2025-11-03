@@ -77,17 +77,10 @@ body {
 }
 
 .entries {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-}
-
-.account.is-open .entries {
-  /* pick a value bigger than your expected content height */
-  max-height: 500px;
 }
 
 .entry {
+  cursor: pointer;
   border-bottom-color: #1c1c1c;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -96,7 +89,8 @@ body {
   background-color: #fafafa;
   color: #1c1c1c;
 
-  transition: all 0.2s ease;
+  transition: all 0.2s;
+  animation: fadeIn 1s;
 
   &:hover {
     filter: brightness(0.7);
@@ -111,6 +105,7 @@ body {
     align-items: center;
     justify-content: space-between;
     /* margin: 3px 0px; */
+    margin-top: 3px;
 
     &.title {
       font-weight: bold;
@@ -121,9 +116,18 @@ body {
     }
 
     &.tags {
-      margin-top: 5px;
       font-size: 0.9rem;
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -143,10 +147,18 @@ body {
   }
 }
 
-.forecast-over {
-  color: #f54e00;
-}
+.forecast {
+  cursor: pointer;
+  transition: all 0.2s;
 
-.forecast-under {
-  color: green;
+  &.over {
+    color: #f54e00;
+  }
+  &.under {
+    color: green;
+  }
+
+  &:hover {
+    color: #00c2f5;
+  }
 }

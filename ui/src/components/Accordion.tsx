@@ -7,10 +7,12 @@ type AccordionProps = {
   payload: Payload;
 };
 
+type AccountStr = string;
+
 export default function Accordion(props: AccordionProps) {
   const { payload } = props;
-  const [expandedAccount, setExpandedAccount] = useState<string | null>(payload.active.accountName);
-  const [sortedTransactions, setSortedTransactions] = useState<Record<string, Transaction[]>>({});
+  const [expandedAccount, setExpandedAccount] = useState<AccountStr | null>(payload.initialAccount);
+  const [sortedTransactions, setSortedTransactions] = useState<Record<AccountStr, Transaction[]>>({});
 
   useEffect(() => {
     const processed: Record<string, Transaction[]> = {};
@@ -24,7 +26,9 @@ export default function Accordion(props: AccordionProps) {
       }
     });
 
-    setSortedTransactions(processed);
+    const sorted = Object.fromEntries(Object.entries(processed).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)));
+
+    setSortedTransactions(sorted);
   }, []);
 
   // Extract our possible accounts.
@@ -41,15 +45,17 @@ export default function Accordion(props: AccordionProps) {
   function renderTransactions() {
     const elementCollection = [];
 
-    for (const currentAccount in sortedTransactions) {
-      if (!BLACKLIST.includes(currentAccount)) {
+    for (const account in sortedTransactions) {
+      if (!BLACKLIST.includes(account)) {
+        const forecastedValue = payload.forecastedAccounts[account];
+
         elementCollection.push(
           <Account
-            key={currentAccount}
-            transactions={sortedTransactions[currentAccount]}
-            expanded={currentAccount === expandedAccount}
+            key={account}
+            transactions={sortedTransactions[account]}
+            expanded={account === expandedAccount}
             onClick={onClick}
-            forecasted={currentAccount === payload.active.accountName ? payload.active.amountForecast : null}
+            forecasted={forecastedValue}
           />
         );
       }
@@ -58,5 +64,5 @@ export default function Accordion(props: AccordionProps) {
     return elementCollection;
   }
 
-  return <div className="accordion">{renderTransactions()}</div>;
+  return <div className='accordion'>{renderTransactions()}</div>;
 }

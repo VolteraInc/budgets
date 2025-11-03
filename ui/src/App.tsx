@@ -9,11 +9,16 @@ interface AppProps {
 }
 
 const dummyData: Payload = {
-  active: {
-    accountName: "63005 - Travel - Tradeshows & Conferences",
-    amountForecast: 30.0,
-  },
+  initialAccount: "63005 - Travel - Tradeshows & Conferences",
   date: "Wed Oct 01 00:00:00 GMT-04:00 2025",
+
+  forecastedAccounts: {
+    "60000 - Gross Payroll": 10,
+    "60001 - Company Benefits": 99,
+    "60003 - EHT": 30,
+    "63005 - Travel - Tradeshows & Conferences": 123,
+  },
+
   allTransactions: [
     {
       value: 0.0,
@@ -43,7 +48,7 @@ const dummyData: Payload = {
     },
     {
       project: "",
-      memo: "Employee Benefits Added Fisher's EE deduction portion",
+      memo: "Employee Benefits Added  EE deduction portion",
       account: "60001 - Company Benefits",
       tranid: "2025 October",
       class: "v-one",
@@ -160,8 +165,8 @@ function App(props: AppProps) {
 
   return (
     <div>
-      <div className="header">
-        <img src={volteraLogo} alt="Voltera logo" />
+      <div className='header'>
+        <img src={volteraLogo} alt='Voltera logo' />
         <h3>Transactions - {month}</h3>
       </div>
       <Accordion payload={payload} />

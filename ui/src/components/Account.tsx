@@ -5,7 +5,7 @@ import { type Transaction } from "../types";
 type HistoryProps = {
   transactions: Transaction[];
   expanded: boolean;
-  forecasted: number | null;
+  forecasted: number;
   onClick: (newAccount: string) => void;
 };
 export default function Account(props: HistoryProps) {
@@ -13,6 +13,7 @@ export default function Account(props: HistoryProps) {
 
   const [accountName] = useState<string>(transactions[0].account);
   const [accountTotal, setAccountTotal] = useState<number>(0);
+  const [showPercentage, setShowPercentage] = useState<boolean>(true);
 
   useEffect(() => {
     const total = transactions.reduce((sum, t) => sum + t.value, 0);
@@ -20,17 +21,31 @@ export default function Account(props: HistoryProps) {
   }, [transactions]);
 
   function renderComparison() {
-    if (!forecasted) {
+    if (forecasted === 0) {
       return null;
     }
 
-    const percentage = Math.round(((accountTotal - forecasted) / forecasted) * 100);
+    const formatted = forecasted.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
 
-    if (percentage > 0) {
-      return <span className="forecast-over"> (+{percentage}%)</span>;
-    } else {
-      return <span className="forecast-under"> ({percentage}%)</span>;
-    }
+    const percentage = Math.round(((accountTotal - forecasted) / forecasted) * 100);
+    const isOver = percentage > 0;
+    const value = showPercentage ? ` (${isOver ? "+" : ""}${percentage}%)` : ` (${formatted})`;
+    const className = `forecast ${isOver ? "over" : "under"}`;
+
+    return (
+      <span
+        onClick={(e) => {
+          e.stopPropagation(); // ⛔ prevents triggering the parent click
+          setShowPercentage(!showPercentage);
+        }}
+        className={className}
+      >
+        {value}
+      </span>
+    );
   }
 
   const formatted = accountTotal.toLocaleString("en-US", {
@@ -38,9 +53,23 @@ export default function Account(props: HistoryProps) {
     currency: "USD",
   });
 
+  function renderEntries() {
+    if (!expanded) {
+      return null;
+    }
+
+    return (
+      <div className='entries'>
+        {transactions.map((trans, index) => (
+          <Entry key={`${index}-accountName`} transaction={trans} />
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className={`account ${expanded ? "is-open" : ""}`} onClick={() => onClick(accountName)}>
-      <div className={`title-overview ${expanded ? "expanded" : ""}`}>
+    <div className='account'>
+      <div className={`title-overview ${expanded ? "expanded" : ""}`} onClick={() => onClick(accountName)}>
         <p>{accountName.slice(0, 25)}</p>
         <p>
           {formatted}
@@ -48,11 +77,7 @@ export default function Account(props: HistoryProps) {
         </p>
       </div>
 
-      <div className="entries">
-        {transactions.map((trans, index) => (
-          <Entry key={`${index}-accountName`} transaction={trans} />
-        ))}
-      </div>
+      {renderEntries()}
     </div>
   );
 }

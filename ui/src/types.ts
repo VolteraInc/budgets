@@ -14,10 +14,10 @@ export type Transaction = {
 };
 
 export type Payload = {
-  active: {
-    accountName: string;
-    amountForecast: number;
-  };
+  initialAccount: string;
   date: string;
+  forecastedAccounts: {
+    [account: string]: number;
+  };
   allTransactions: Transaction[];
 };

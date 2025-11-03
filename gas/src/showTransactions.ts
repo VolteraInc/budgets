@@ -5,53 +5,54 @@ type Transaction = {
   class: string;
   invoice: string;
   memo: string;
+  // Plus others...
 };
 
 type Payload = {
-  active: {
-    accountName: string;
-    amountForecast: number;
-  };
+  initialAccount: string;
   date: Date;
+  forecastedAccounts: {
+    [account: string]: number;
+  };
   allTransactions: Transaction[];
 };
 
 function showTransactions() {
   try {
-    const SS = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = SS.getActiveSheet();
-    const cell = sheet.getActiveCell();
-
-    // Extract the active cell & forecasted amount.
-    const accountName = sheet.getRange(cell.getRow(), 1).getValue();
-    const amountForecast = getForecastedValue();
+    // Extract the active cell & forecasted amounts. .
+    const initialAccount = getActiveCellValue();
+    const forecastedAccounts = getForecastedValuesForActiveMonth();
+    const { startDate, endDate } = getActiveCellMonths();
 
     // Extract department, class and project parameters
     const filters = getDepartmentAndProjectIds();
     const { deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds } = filters;
-    // Extract date range from the column header.
-    const date = new Date(sheet.getRange(1, cell.getColumn()).getValue());
-    const { startDate, endDate } = convertMonth(date);
 
     // Fetch from netsuite.
-    const data = getFromNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds);
+    const data = getFromNetsuite(
+      startDate,
+      endDate,
+      deptIds,
+      withProjectIds,
+      withoutProjectIds,
+      withClassIds,
+      withoutClassIds
+    );
 
     // Fetch invoices if possible.
     // const withInvoices = listWithInvoices(filteredList);
 
     const payload: Payload = {
-      active: {
-        accountName,
-        amountForecast,
-      },
-      date,
+      initialAccount,
+      date: new Date(startDate),
+      forecastedAccounts,
       allTransactions: data,
     };
 
     showSidebar(payload);
   } catch (error: any) {
-    Logger.log(`Error: ${error.message}`);
-    SpreadsheetApp.getUi().alert("An error occurred. Contact Shawn or Chuy for help.");
+    Logger.log(`Error: ${JSON.stringify(error)}`);
+    SpreadsheetApp.getUi().alert(error.message);
   }
 }
 
@@ -81,7 +82,7 @@ function showSidebar(payload: Payload) {
         </html>
         `);
 
-  html.setTitle("Transactions").setWidth(420);
+  html.setTitle("Transactions").setWidth(320); // Set width doesn't do anything I think
   SpreadsheetApp.getUi().showSidebar(html);
 }
 
@@ -102,7 +103,16 @@ function getFromNetsuite(
     Logger.log(`Retrieved ${cacheName} from cache`);
     return JSON.parse(cached);
   }
-  const data = queryNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds, false);
+  const data = queryNetsuite(
+    startDate,
+    endDate,
+    deptIds,
+    withProjectIds,
+    withoutProjectIds,
+    withClassIds,
+    withoutClassIds,
+    false
+  );
   cache.put(cacheName, JSON.stringify(data), 300); // cache for 5 minutes
   return data;
 }
