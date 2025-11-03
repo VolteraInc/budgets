@@ -83,15 +83,18 @@ function getFromNetsuite(
   withClassIds: string,
   withoutClassIds: string
 ) {
+  // Disable caching for now - likely not required
+
   // Get data from cache if it exists (prevents duplicate calls)
-  const cache = CacheService.getScriptCache();
-  const cacheName = `${deptIds}-${startDate}-actuals`;
-  const cached = cache.get(cacheName);
-  if (cached != null) {
-    Logger.log(`Retrieved ${cacheName} from cache`);
-    return JSON.parse(cached);
-  }
-  const data = queryNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds, false);
-  cache.put(cacheName, JSON.stringify(data), 300); // cache for 5 minutes
+  // const cache = CacheService.getScriptCache();
+  // const cacheName = `${deptIds}-${withProjectIds}-${withClassIds}-${startDate}-actuals`;
+  // const cacheName = JSON.stringify(Array.from(arguments));
+  // const cached = cache.get(cacheName);
+  // if (cached != null) {
+  //   Logger.log(`Retrieved ${cacheName} from cache`);
+  //   return JSON.parse(cached);
+  // }
+  const data = queryNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds, false) as NetsuiteData[];
+  // cache.put(cacheName, JSON.stringify(data), 300); // cache for 5 minutes
   return data;
 }

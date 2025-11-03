@@ -7,7 +7,7 @@ export const BLACKLIST = [
   // "60004 - Team Development",  // This one is okay.
   "60005 - Profit Sharing",
   // "60006 - Other expense", // Not sure what this is.
-  "60007 - Comission",
+  "60007 - Commission",
   "81002 - Rounding Gain/Loss",
 ];
 
