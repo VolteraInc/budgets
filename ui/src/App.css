@@ -150,6 +150,10 @@ a:hover {
   &.product {
     background-color: #00c2f5;
   }
+
+  &.none {
+    background-color: red;
+  }
 }
 
 .forecast {

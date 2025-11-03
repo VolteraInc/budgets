@@ -22,7 +22,7 @@ export default function Entry(props: EntryProps) {
           <div></div>
           <div>
             {project ? <span className="pill project">{project}</span> : null}
-            {product ? <span className="pill product">{product}</span> : null}
+            {product ? <span className="pill product">{product}</span> : <span className="pill none">No Class!</span>}
           </div>
         </div>
       );

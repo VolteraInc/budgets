@@ -59,7 +59,7 @@ export const dummyData: Payload = {
       date: "2025-10-01T04:00:00.000Z",
       amount: 3045,
       department: "Sales & Marketing : Marketing",
-      class: "Voltera",
+      class: "",
       project: "",
       account: "64000 - Contractors",
       period: "Oct 2025",
