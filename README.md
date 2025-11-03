@@ -1,107 +1,73 @@
-# Budget 2.0 — Engineering README
+# React + TypeScript + Vite
 
-This repo contains the TypeScript source for the **Budget 2.0** Google Apps Script project. You will write code in `src/` and push compiled output to Apps Script.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Quick start
+Currently, two official plugins are available:
 
-```bash
-# 1) Install prerequisites
-node -v            # v18+ recommended
-npm -v
-npm i -g @google/clasp typescript
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# 2) Install dependencies
-npm i
+## React Compiler
 
-# 3) Authenticate to Google
-clasp login
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-# 4) Build and push to Apps Script
-npm run deploy
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## Prerequisites
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-- **Node.js** v18 or newer.
-- **npm** comes with Node.js.
-- **TypeScript** compiler. Installed as a dependency or globally.
-- **clasp** (Command Line Apps Script) to push code to Google.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-If you do not have them:
-
-```bash
-# Node.js: https://nodejs.org/
-npm i -g @google/clasp typescript
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-## Authentication with clasp
-
-You must authenticate once before you can push code.
-
-```bash
-clasp login
-```
-
-This opens a browser window. Use your engineering Google account that owns or has edit access to the **Budget 2.0** Apps Script project.
-
-## Project structure
-
-```
-root/
-├─ src/                # All source files you edit (TS, HTML, JSON, etc.)
-├─ build/              # Output folder populated on build
-├─ package.json        # npm scripts
-├─ tsconfig.json       # TypeScript config
-└─ .clasp.json         # Links this repo to the Budget 2.0 Apps Script project
-```
-
-- **All files you edit live in `src/`.**
-- **The `build/` folder is generated on build.** The contents of `build/` are what get **pushed** to the **Budget 2.0** Apps Script project.
-
-> Make sure `.clasp.json` contains the correct `scriptId` for Budget 2.0.
-
-Example:
-
-```json
-{
-  "scriptId": "<YOUR_BUDGET_2_SCRIPT_ID>",
-  "rootDir": "build/"
-}
-```
-
-## npm scripts
-
-These are the basic scripts and what they do.
-
-```json
-{
-  "scripts": {
-    "build": "rimraf build && tsc && copyfiles -u 1 src/**/*.{html,json} build/",
-    "deploy": "npm run build && clasp push"
-  }
-}
-```
-
-- **`npm run build`** nukes the `build/` folder then compiles TypeScript to JavaScript into `build/` and copies html and json files.
-- **`npm run deploy`** builds then pushes the `build/` folder to the linked Apps Script project using `clasp push`.
-
-## Typical workflow
-
-1. Pull the latest changes from Git.
-2. Write or edit code in `src/`.
-3. Run `npm run deploy` to push to Apps Script.
-4. Test in the Apps Script UI or the attached spreadsheet.
-
-## First time setup checklist
-
-- Install Node.js and npm.
-- `npm i -g @google/clasp typescript`.
-- `npm i` in the repo root.
-- `clasp login` with your engineering Google account.
-- Confirm `.clasp.json` points to Budget 2.0 and `rootDir` is `build`.
-- `npm run deploy` to push the initial build.
-
-## Notes
-
-- Keep `src/` as the single source of truth. Do not edit files in `build/` by hand.
-- The `build/` folder is safe to delete. It will be regenerated by the build.
