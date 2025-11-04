@@ -18,11 +18,11 @@ export default function Entry(props: EntryProps) {
   function renderTagsOrInvoice() {
     if (showTags) {
       return (
-        <div className="line subtitle">
+        <div className='line subtitle'>
           <div></div>
           <div>
-            {project ? <span className="pill project">{project}</span> : null}
-            {product ? <span className="pill product">{product}</span> : <span className="pill none">No Class!</span>}
+            {project ? <span className='pill project'>{project}</span> : null}
+            {product ? <span className='pill product'>{product}</span> : <span className='pill none'>No Class!</span>}
           </div>
         </div>
       );
@@ -33,20 +33,22 @@ export default function Entry(props: EntryProps) {
       prefix = "vendbill";
     } else if (type === "Journal") {
       prefix = "journal";
+    } else if (type === "Warranty Claim") {
+      prefix = "cutrsale";
     }
 
     const link = `https://5097856.app.netsuite.com/app/accounting/transactions/${prefix}.nl?id=${internalid}`;
 
     return (
-      <div className="line subtitle">
+      <div className='line subtitle'>
         <div></div>
         <p>
-          <a target="_blank" href={link}>
+          <a target='_blank' href={link}>
             {type}
           </a>
           {"  "}
           {float ? (
-            <a target="_blank" href={float}>
+            <a target='_blank' href={float}>
               Float
             </a>
           ) : null}
@@ -56,8 +58,8 @@ export default function Entry(props: EntryProps) {
   }
 
   return (
-    <div className="entry" onClick={() => setShowTags(!showTags)}>
-      <div className="line title">
+    <div className='entry' onClick={() => setShowTags(!showTags)}>
+      <div className='line title'>
         <p>{entity || vendor}</p>
         <p>
           {amount.toLocaleString("en-US", {
@@ -67,9 +69,9 @@ export default function Entry(props: EntryProps) {
         </p>
       </div>
 
-      <div className="line subtitle">
+      <div className='line subtitle'>
         <p>{memo}</p>
-        <p className="month">{month}</p>
+        <p className='month'>{month}</p>
       </div>
       {renderTagsOrInvoice()}
     </div>
