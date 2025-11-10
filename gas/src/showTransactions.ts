@@ -24,7 +24,15 @@ function showTransactions() {
     const { deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds } = filters;
 
     // Fetch from netsuite.
-    const data = getFromNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds);
+    const data = getFromNetsuite(
+      startDate,
+      endDate,
+      deptIds,
+      withProjectIds,
+      withoutProjectIds,
+      withClassIds,
+      withoutClassIds
+    );
 
     // Fetch invoices if possible.
     // const withInvoices = listWithInvoices(filteredList);
@@ -50,7 +58,7 @@ function showSidebar(payload: Payload) {
   // Assets from Github pages.
 
   // const version = new Date().getTime(); // or pull from PropertiesService
-  const version = 1;
+  const version = 2;
   const html = HtmlService.createHtmlOutput(`
         <!doctype html>
         <html>
@@ -94,7 +102,16 @@ function getFromNetsuite(
   //   Logger.log(`Retrieved ${cacheName} from cache`);
   //   return JSON.parse(cached);
   // }
-  const data = queryNetsuite(startDate, endDate, deptIds, withProjectIds, withoutProjectIds, withClassIds, withoutClassIds, false) as NetsuiteData[];
+  const data = queryNetsuite(
+    startDate,
+    endDate,
+    deptIds,
+    withProjectIds,
+    withoutProjectIds,
+    withClassIds,
+    withoutClassIds,
+    false
+  ) as NetsuiteData[];
   // cache.put(cacheName, JSON.stringify(data), 300); // cache for 5 minutes
   return data;
 }

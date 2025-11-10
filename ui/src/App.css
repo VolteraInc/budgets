@@ -164,10 +164,47 @@ a:hover {
     color: #f54e00;
   }
   &.under {
-    color: green;
+    color: #6fcf2a;
   }
 
   &:hover {
     color: #00c2f5;
+  }
+}
+
+input {
+  width: 210px;
+}
+button {
+  background-color: #2b2b2b;
+  color: #fafafa;
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #00c2f5;
+  }
+}
+.dispute {
+  margin-top: 10px;
+
+  p {
+    margin: 5px 0px;
+  }
+}
+
+.disputed {
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.dispute-link {
+  text-decoration: underline;
+
+  &:hover {
+    color: #6fcf2a;
   }
 }

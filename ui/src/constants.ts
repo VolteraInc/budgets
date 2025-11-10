@@ -99,7 +99,8 @@ export const dummyData: Payload = {
       memo: "Google ads",
       tranid: "11488",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/d071b718-9566-4665-af1c-eb4a4fb88014.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/d071b718-9566-4665-af1c-eb4a4fb88014.png",
       vendor: "",
       internalid: "958807",
     },
@@ -115,7 +116,8 @@ export const dummyData: Payload = {
       memo: "IEEE Sensor shipping",
       tranid: "11490",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/60d5c43e-87eb-4543-a68c-d5f1d67c005b.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/60d5c43e-87eb-4543-a68c-d5f1d67c005b.pdf",
       vendor: "",
       internalid: "959991",
     },
@@ -131,7 +133,8 @@ export const dummyData: Payload = {
       memo: "IEEE Sensor shipping",
       tranid: "11490",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/60d5c43e-87eb-4543-a68c-d5f1d67c005b.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/60d5c43e-87eb-4543-a68c-d5f1d67c005b.pdf",
       vendor: "",
       internalid: "959991",
     },
@@ -147,7 +150,8 @@ export const dummyData: Payload = {
       memo: "IEEE Sensors booth fee",
       tranid: "11490",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/60d5c43e-87eb-4543-a68c-d5f1d67c005b.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/60d5c43e-87eb-4543-a68c-d5f1d67c005b.pdf",
       vendor: "",
       internalid: "959991",
     },
@@ -163,7 +167,8 @@ export const dummyData: Payload = {
       memo: "Design fee for our new business cards",
       tranid: "11479",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/ede6ad37-1e2d-4bcf-aa96-5bf152a1f075.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/ede6ad37-1e2d-4bcf-aa96-5bf152a1f075.pdf",
       vendor: "",
       internalid: "958798",
     },
@@ -179,7 +184,8 @@ export const dummyData: Payload = {
       memo: "Return flight ieee",
       tranid: "11527",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/c1329a04-40c5-4ca9-96ef-6e64d1a680f4.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/c1329a04-40c5-4ca9-96ef-6e64d1a680f4.png",
       vendor: "",
       internalid: "960890",
     },
@@ -195,7 +201,8 @@ export const dummyData: Payload = {
       memo: "IEEE shipping",
       tranid: "11690",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/6035d43e-c747-473d-946b-ca119c6e6829.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/6035d43e-c747-473d-946b-ca119c6e6829.pdf",
       vendor: "",
       internalid: "967689",
     },
@@ -211,7 +218,8 @@ export const dummyData: Payload = {
       memo: "Figma monthly",
       tranid: "11491",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/410934f4-ca8a-4dff-9b87-ba44bbe95075.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/410934f4-ca8a-4dff-9b87-ba44bbe95075.pdf",
       vendor: "",
       internalid: "959992",
     },
@@ -227,7 +235,8 @@ export const dummyData: Payload = {
       memo: "Google ads",
       tranid: "11518",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/414a8c38-1717-429b-99a4-bacf70ea2bec.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/414a8c38-1717-429b-99a4-bacf70ea2bec.png",
       vendor: "",
       internalid: "960100",
     },
@@ -243,7 +252,8 @@ export const dummyData: Payload = {
       memo: "Business cards - Paul",
       tranid: "11526",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/dc1dff86-13e0-4922-8749-df19b6adf230.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/dc1dff86-13e0-4922-8749-df19b6adf230.pdf",
       vendor: "",
       internalid: "960889",
     },
@@ -259,7 +269,8 @@ export const dummyData: Payload = {
       memo: "TechBlick supplies",
       tranid: "11529",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/5c1f4473-c792-4692-b2b0-e93b47f171ee.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/5c1f4473-c792-4692-b2b0-e93b47f171ee.png",
       vendor: "",
       internalid: "960983",
     },
@@ -275,7 +286,8 @@ export const dummyData: Payload = {
       memo: "TechBlick supplies",
       tranid: "11531",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/1cac88df-3a46-40cb-bc55-f33a5f3b2f81.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/1cac88df-3a46-40cb-bc55-f33a5f3b2f81.pdf",
       vendor: "",
       internalid: "960985",
     },
@@ -291,7 +303,8 @@ export const dummyData: Payload = {
       memo: "Silica packs for maintaining sample integrity",
       tranid: "11578",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/28952b29-676a-4ef4-ab4a-f3ed10ca542b.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/28952b29-676a-4ef4-ab4a-f3ed10ca542b.png",
       vendor: "",
       internalid: "962378",
     },
@@ -355,7 +368,8 @@ export const dummyData: Payload = {
       memo: "Luggage tag for TechBlick Berlin suitcase",
       tranid: "11560",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/3323e422-d1cd-44f0-abda-13123d5a1646.jpg",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/3323e422-d1cd-44f0-abda-13123d5a1646.jpg",
       vendor: "",
       internalid: "962370",
     },
@@ -371,7 +385,8 @@ export const dummyData: Payload = {
       memo: "Account level upgrade",
       tranid: "11570",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/5ade1898-17e0-4932-89dc-df134fb80e64.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/5ade1898-17e0-4932-89dc-df134fb80e64.pdf",
       vendor: "",
       internalid: "962469",
     },
@@ -387,7 +402,8 @@ export const dummyData: Payload = {
       memo: "Uber to airport",
       tranid: "11576",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/d979fd49-e7cd-4a69-9c12-a1e825bd1827.jpg",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/d979fd49-e7cd-4a69-9c12-a1e825bd1827.jpg",
       vendor: "",
       internalid: "962376",
     },
@@ -403,7 +419,8 @@ export const dummyData: Payload = {
       memo: "Wrapping for luggage.",
       tranid: "11603",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/c9b798e4-8c14-4cb5-9b4a-de95b743fb44.jpg",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/c9b798e4-8c14-4cb5-9b4a-de95b743fb44.jpg",
       vendor: "",
       internalid: "963677",
     },
@@ -435,7 +452,8 @@ export const dummyData: Payload = {
       memo: "eSim",
       tranid: "11679",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/77cf2a1f-5795-4b3f-91c9-d73c90f9ce69.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/77cf2a1f-5795-4b3f-91c9-d73c90f9ce69.png",
       vendor: "",
       internalid: "967054",
     },
@@ -467,7 +485,8 @@ export const dummyData: Payload = {
       memo: "HubSpot monthly",
       tranid: "11602",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/cda79257-e887-4816-a3fd-e9879d787946.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/cda79257-e887-4816-a3fd-e9879d787946.pdf",
       vendor: "",
       internalid: "963676",
     },
@@ -483,7 +502,8 @@ export const dummyData: Payload = {
       memo: "Parking",
       tranid: "11608",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/6a641a42-bb94-4e6c-a4eb-7777cf636922.jpg",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/6a641a42-bb94-4e6c-a4eb-7777cf636922.jpg",
       vendor: "",
       internalid: "963682",
     },
@@ -515,7 +535,8 @@ export const dummyData: Payload = {
       memo: "to Toronto airport",
       tranid: "11678",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/f8f8a523-54b5-4a0f-9649-80f8657b0f1e.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/f8f8a523-54b5-4a0f-9649-80f8657b0f1e.pdf",
       vendor: "",
       internalid: "967053",
     },
@@ -563,7 +584,8 @@ export const dummyData: Payload = {
       memo: "hotel fee",
       tranid: "11695",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/ab089401-5e67-4c85-9de0-dfb978fa479f.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/ab089401-5e67-4c85-9de0-dfb978fa479f.png",
       vendor: "",
       internalid: "967909",
     },
@@ -579,7 +601,8 @@ export const dummyData: Payload = {
       memo: "Semrush monthly",
       tranid: "11605",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/fcb7d415-c8b3-42ca-a373-f8255fb64d31.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/fcb7d415-c8b3-42ca-a373-f8255fb64d31.pdf",
       vendor: "",
       internalid: "963679",
     },
@@ -675,7 +698,8 @@ export const dummyData: Payload = {
       memo: "Uber to conference",
       tranid: "11625",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/142bb884-58d1-4e71-99b8-5d1ff3bffe88.jpg",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/142bb884-58d1-4e71-99b8-5d1ff3bffe88.jpg",
       vendor: "",
       internalid: "964154",
     },
@@ -755,7 +779,8 @@ export const dummyData: Payload = {
       memo: "Google ads",
       tranid: "11623",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/656e17b8-1c04-4e83-a556-5868ad222173.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/656e17b8-1c04-4e83-a556-5868ad222173.png",
       vendor: "",
       internalid: "964152",
     },
@@ -787,7 +812,8 @@ export const dummyData: Payload = {
       memo: "trip to airport",
       tranid: "11667",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/34d9c204-85a5-4a4f-b252-b545dbcc8084.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/34d9c204-85a5-4a4f-b252-b545dbcc8084.pdf",
       vendor: "",
       internalid: "967042",
     },
@@ -803,7 +829,8 @@ export const dummyData: Payload = {
       memo: "trip from airport to home",
       tranid: "11669",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/19f9857d-42db-40ae-b80f-69ef25e929ac.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/19f9857d-42db-40ae-b80f-69ef25e929ac.pdf",
       vendor: "",
       internalid: "967044",
     },
@@ -883,7 +910,8 @@ export const dummyData: Payload = {
       memo: "Google ads",
       tranid: "11657",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/22f7c66d-01a4-4f1d-b5f4-f9fcfdb08c7b.png",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/22f7c66d-01a4-4f1d-b5f4-f9fcfdb08c7b.png",
       vendor: "",
       internalid: "966607",
     },
@@ -899,7 +927,8 @@ export const dummyData: Payload = {
       memo: "Zoom for webinars",
       tranid: "11659",
       type: "Journal",
-      float: "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/b1aa9a88-a689-42d6-8bb3-c544bb800bd1.pdf",
+      float:
+        "https://receipt-store-us-east-2.s3.amazonaws.com/processed_receipts/b1aa9a88-a689-42d6-8bb3-c544bb800bd1.pdf",
       vendor: "",
       internalid: "966609",
     },
@@ -969,3 +998,73 @@ export const dummyData: Payload = {
     },
   ],
 };
+
+// Table of all types.
+// https://netsuite.folio3.com/blog/the-abcs-of-netsuite-transaction-types-for-new-users/
+
+const TYPE_TO_PREFIX: Record<string, string> = {
+  // From your list
+  "assembly build": "build",
+  "assembly unbuild": "unbuild",
+  bill: "vendbill",
+  "bill credit": "vendcred",
+  "bill payment": "vendpymt",
+  "bin putaway worksheet": "binwksht",
+  "bin transfer": "bintrnfr",
+  "cash refund": "cashrfnd",
+  "cash sale": "cashsale",
+  check: "check",
+  commission: "commissn",
+  "credit card": "cardchrg",
+  "credit memo": "custcred",
+  "currency revaluation": "fxreval",
+  "customer deposit": "custdep",
+  "customer refund": "custrfnd",
+  deposit: "deposit",
+  "deposit application": "depappl",
+  estimate: "estimate",
+  "expense report": "exprept",
+  "inventory adjustment": "invadjst",
+  "inventory adjusment": "invadjst", // tolerance for typo in the source table
+  "inventory cost revaluation": "invreval",
+  "inventory distribution": "invdistr",
+  "inventory transfer": "invtrnfr",
+  "inventory worksheet": "invwksht",
+  invoice: "custinvc",
+  "item fulfillment": "itemship",
+  "item receipt": "itemrcpt",
+  journal: "journal",
+  opportunity: "opprtnty",
+  paycheck: "paycheck",
+  payment: "custpymt",
+  "payroll liability check": "liabpymt",
+  "payroll adjustment": "ytdadjst",
+  "purchase order": "purchord",
+  "return authorization": "rtnauth",
+  "revenue commitment": "revcomm",
+  "revenue commitment reversal": "revcomrv",
+  "sales order": "salesord",
+  "sales tax payment": "taxpymt",
+  "statement charge": "custchrg",
+  "transfer order": "trnfrord",
+  "vendor return authorization": "vendauth",
+  "work order": "workord",
+
+  // Custom to Voltera.
+  "warranty claim": "cutrsale",
+};
+
+/**
+ * Returns the NetSuite URL prefix for a given transaction type.
+ * - Case-insensitive.
+ * - Trims whitespace.
+ * - Includes a few tolerant aliases (e.g., "inventory adjusment").
+ * - Returns "" if the type is unknown (to match your current behavior).
+ */
+export function convertTypeToPrefix(type: string): string {
+  if (!type) {
+    return "";
+  }
+  const key = type.trim().toLowerCase();
+  return TYPE_TO_PREFIX[key] ?? "";
+}
